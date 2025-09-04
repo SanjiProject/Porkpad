@@ -1,0 +1,11 @@
+# Handle /recent and /dashboard specifically
+rewrite ^/recent/?$ /recent.php last;
+rewrite ^/dashboard/?$ /dashboard.php last;
+
+# Redirect old URLs to clean ones
+rewrite ^/recent\.php$ /recent permanent;
+rewrite ^/dashboard\.php$ /dashboard permanent;
+
+# Handle paste URLs - very specific pattern
+# Must start with letter/number, 3-50 total chars, only letters/numbers/dash/underscore
+rewrite "^/([a-zA-Z0-9][a-zA-Z0-9\-_]{2,49})/?$" /view.php?id=$1 last;

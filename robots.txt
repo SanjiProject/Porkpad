@@ -1,0 +1,26 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://yoursite.com/sitemap.php
+
+# Allow all pages
+Allow: /recent
+Allow: /dashboard
+Allow: /category.php
+Allow: /user.php
+Allow: /login.php
+Allow: /register.php
+
+# Disallow admin areas
+Disallow: /admin.php
+Disallow: /classes/
+Disallow: /assets/
+Disallow: /img/
+Disallow: *.php$
+
+# Allow paste URLs (clean URLs)
+Allow: /[a-zA-Z0-9\-_]+
+
+# Crawl delay (optional - be nice to servers)
+Crawl-delay: 1

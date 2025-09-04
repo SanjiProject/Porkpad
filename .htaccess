@@ -1,0 +1,27 @@
+RewriteEngine On
+
+# Redirect trailing slashes (except for directories)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)/$ /$1 [R=301,L]
+
+# Handle clean URLs for specific pages
+RewriteRule ^recent/?$ recent.php [L,QSA]
+RewriteRule ^dashboard/?$ dashboard.php [L,QSA]
+
+# Handle clean URLs for pastes
+# Match any alphanumeric string with hyphens/underscores (custom URLs or IDs)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !^/(admin|dashboard|login|register|profile|recent|category|edit|api)
+RewriteRule ^([a-zA-Z0-9\-_]+)/?$ view.php?id=$1 [L,QSA]
+
+# Redirect old .php URLs to clean URLs (for SEO)
+RewriteCond %{THE_REQUEST} /recent\.php
+RewriteRule ^recent\.php$ /recent? [R=301,L]
+
+RewriteCond %{THE_REQUEST} /dashboard\.php
+RewriteRule ^dashboard\.php$ /dashboard? [R=301,L]
+
+# Optional: Redirect old view.php?id= URLs to clean URLs (for SEO)
+RewriteCond %{THE_REQUEST} /view\.php\?id=([a-zA-Z0-9\-_]+)
+RewriteRule ^view\.php$ /%1? [R=301,L]
