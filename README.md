@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![PorkPad Platform Screenshot](https://porkpad.com/img/header.webp)
+![PorkPad Platform Screenshot](https://porkpad.com/img/screenshot.png)
 
 *A Simple & Fast Paste Sharing Platform*
 
